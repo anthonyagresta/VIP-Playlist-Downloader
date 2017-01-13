@@ -197,7 +197,7 @@ if __name__ == '__main__':
             print NameError("Error: Download folder cannot be named %s" % clargs.dl_folder)
             sys.exit(1)
 
-        print "Prepairing to download latest VIP playlist"
+        print "Preparing to download latest VIP playlist"
 
         rosternames = {
             'normal': 'http://vip.aersia.net/roster.xml',
