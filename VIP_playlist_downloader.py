@@ -53,6 +53,8 @@ def getPrettyFileSizes(fsize, size = None):
     else:
         return sizelist.get(size)
 
+def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
+    
 def download(song, total_songs, current_song, location = ''):
     u = urllib2.urlopen(song.location)
     f = open(os.path.join(location, song.filename), 'wb')
@@ -218,7 +220,7 @@ if __name__ == '__main__':
 
 
         roster = requests.get(xmlroster)
-        treeroot = ET.fromstring(roster.text.replace('xmlns="http://xspf.org/ns/0/"',''))
+        treeroot = treeroot = ET.fromstring(removeNonAscii(roster.text.replace('xmlns="http://xspf.org/ns/0/"','')))
 
         print treeroot.getchildren()[0][0].find('title').text
         print # "X Tracks (Last Update: M DD YY)" or something like that
