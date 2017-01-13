@@ -31,6 +31,8 @@ namehacks = {
     "  X'mas Edit": " (X'mas Edit)"
 }
 
+total_song_data_size = 0
+
 def get_term_size():
     h = windll.kernel32.GetStdHandle(-12)
     csbi = create_string_buffer(22)
@@ -249,7 +251,6 @@ if __name__ == '__main__':
         print "Applied %s namehacks" % numnamehacks
         print 'Beginning downloads to: %s' % os.path.join(os.path.abspath('.'), clargs.dl_folder); print
 
-        total_song_data_size = 0
         downloaded_songs = 0
 
         for song in songlist:
